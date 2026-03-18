@@ -47,7 +47,7 @@ def query_ollama(prompt):
     }
     
     try:
-        response = requests.post(OLLAMA_ENDPOINT, json=payload, timeout=60)
+        response = requests.post(OLLAMA_ENDPOINT, json=payload, timeout=180)
         response.raise_for_status()
         return json.loads(response.text).get("response", "").strip()
     except requests.exceptions.RequestException as e:
